@@ -18,3 +18,7 @@ On the other hand, a faculty member can use this system for class attendance of 
   Vanilla JavaScript for front end
   
   Postgres database and SQL for database management
+
+# Repo link
+
+https://github.com/shiblygnr/Software-Engineering-and-Information-System-Design.git
