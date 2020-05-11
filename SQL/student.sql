@@ -1,0 +1,8 @@
+insert into students (student_id, student_first_name, student_last_name, student_dept, student_cgpa, student_tot_credit, student_dob) values('S-1-0001', 'Shibly', 'GNR', 'CSE', 3.99, 130, '06-OCT-1995');
+insert into students (student_id, student_first_name, student_last_name, student_dept, student_cgpa, student_tot_credit, student_dob) values('S-1-0002', 'Alice', 'Milford', 'CSE', 2.3, 6, '09-DEC-1999');
+insert into students (student_id, student_first_name, student_last_name, student_dept, student_cgpa, student_tot_credit, student_dob) values('S-1-0003', 'Bob', 'Pasha', 'CSE', 2.3, 20, '19-DEC-1999');
+insert into students (student_id, student_first_name, student_last_name, student_dept, student_cgpa, student_tot_credit, student_dob) values('S-1-0004', 'Charlie', 'Aman', 'CSE', 0, 0, '19-DEC-1999');
+insert into students (student_id, student_first_name, student_last_name, student_dept, student_cgpa, student_tot_credit, student_dob) values('S-1-0005', 'Danny', 'Higgins', 'CSE', 0, 0, '19-DEC-1999');
+insert into students (student_id, student_first_name, student_last_name, student_dept, student_cgpa, student_tot_credit, student_dob) values('S-1-0006', 'Ethan', 'Hawke', 'CSE', 0, 0, '19-DEC-1999');
+insert into students (student_id, student_first_name, student_last_name, student_dept, student_cgpa, student_tot_credit, student_dob) values('S-1-0007', 'Felix', 'White', 'CSE', 0, 0, '19-DEC-1999');
+insert into students (student_id, student_first_name, student_last_name, student_dept, student_cgpa, student_tot_credit, student_dob) values('S-1-0008', 'Tahmina', 'Tisha', 'CSE', 0, 0, '05-DEC-1996');

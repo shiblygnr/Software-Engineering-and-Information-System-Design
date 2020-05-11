@@ -1,0 +1,4 @@
+insert into instructors(instructor_id, instructor_first_name, instructor_last_name, instructor_dept, instructor_rank, instructor_dob) values ('DMRH', 'Muhammad', 'Rezwanul Huq', 'CSE', 'Assistant Professor', '24-MAR-1979');
+insert into instructors(instructor_id, instructor_first_name, instructor_last_name, instructor_dept, instructor_rank, instructor_dob) values ('TM', 'Tanni', 'Mittra', 'CSE', 'Senior Lecturer', '29-JUN-1988');
+insert into instructors(instructor_id, instructor_first_name, instructor_last_name, instructor_dept, instructor_rank, instructor_dob) values ('MHAK', 'Mozammel', 'Huq Azad', 'CSE', 'Professor', '10-JUL-1955');
+insert into instructors(instructor_id, instructor_first_name, instructor_last_name, instructor_dept, instructor_rank, instructor_dob) values ('DSHR', 'Shamim', 'Ripon', 'CSE', 'Professor', '16-JAN-1970');
