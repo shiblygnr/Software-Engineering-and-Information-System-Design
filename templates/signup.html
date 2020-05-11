@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %} Sign UP {% endblock %}
+    {% block style %}
+    <style>
+        #f2 {
+            font-size: 48px;
+            font-weight: 900;
+            color: white;
+            font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+        }
+
+        #f3:hover {
+            color: thistle;
+        }
+        .flex-container {
+            display: flex;
+            align-content: center;
+            margin: 0 auto;
+            width: 25%;
+        }
+
+        .flex-container>div {
+            background-color: #f1f1f1;
+            width: 250px;
+            height: 80px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 35px;
+            font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+            border-radius: 10px;
+        }
+    </style>
+    {% endblock %}
+
+    {% block body %}
+    <br><br><br><br>
+    <h1 id="f2"> SIGN UP</h1>
+    <br><br>
+    <div class="flex-container" id="f1">
+        <div><a href="{{url_for('student_signup')}}"> Student </a></div>
+        <div><a href="{{url_for('faculty_signup')}}"> Faculty </a></div>
+    </div>
+    {% endblock %}

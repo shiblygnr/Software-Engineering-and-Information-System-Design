@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %} Student Progress {% endblock %}
+{% block style %} {% endblock%}
+
+{% block nav %}
+      <a class="navbar-brand" href="{{url_for('studentuser')}}">Student Portal</a>
+      {% endblock %}
+
+{% block navigation %}
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="{{url_for('personal_details')}}" > Personal Details </a></li>
+          <li><a href="{{url_for('enrolled_courses1')}}" id = "form"> Enrolled Courses </a></li>
+          <li><a href="{{url_for('course_registration')}}">Course Registration </a></li>
+          <li><a href="{{url_for('grades')}}">Grades </a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">   </span> {{ info.student_first_name }} </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{url_for('studentlogout')}}">Log out</a></li>
+                </ul>
+              </li>
+        </ul>
+      </div>
+{% endblock %}
+{% block body %}
+    <br><br><br><br>
+    <h1 id="f2"> ENROLLED COURSES</h1>
+    <hr>
+    <br><br>
+    <div >
+        <ul>
+            {% for course in courses_enrolled %}
+                <a href="{{url_for('course_details', section=course.section_id )}}"> <li> {{course.course_code}}({{course.section_no}})</li> </a>
+            {% endfor %}
+        </ul>
+        
+    </div>
+    <br>
+    
+{% endblock %}

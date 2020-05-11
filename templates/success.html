@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block style %}
+<style>
+    h2 {
+        color: black;
+        font-size: 30px;
+        text-align: center;
+        font-family :'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+    }
+    button {
+                font-size: 18px;
+                background-color: white;
+                font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+                width: 20%;
+                border-radius: 10px;
+                padding: 10px;
+                margin-top: 5px;
+        }
+        button:hover, #f2:hover {
+            background-color: thistle;
+        }
+        #f1 {
+            size: 100px;
+            background-color: lightgray;
+            padding: 20px;
+            width:60%;
+            margin: 0 auto;
+            border-radius: 10px;
+            align-content: center;
+        }
+
+        input {
+            border: 2px solid grey;
+            padding: 18px;
+            width: 50%;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            /*font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;*/
+            font-size: 20px;
+        }
+        #form {
+            text-align: center;
+        }
+
+</style>
+    
+
+{% endblock %}
+
+{% block body %}
+<h2>  Your  registration  is  successfull!   Now  you  can  log  in.</h2>  
+<br>
+<div  class = "container" id = "f1">
+        
+    <form action="{{url_for('studentuser')}}" method = "POST" id = "form">
+        <br>
+        <div> <input name = "email" type = "text" placeholder="username" > <br> </div>
+        <div> <input name = "password" type = "password" placeholder="password"> <br></div>
+        <div>
+            <button> Log in </button>
+        </div>
+
+    </form>
+
+
+{% endblock %}

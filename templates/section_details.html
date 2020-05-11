@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title> Section Details </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+  <style>
+    /* Container needed to position the button. Adjust the width as needed */
+    .column {
+      position: relative;
+      float: left;
+      width: 32.33%;
+      padding: 1px;
+      padding-left: 40px;
+      padding-top: 5px;
+
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    /* Make the image responsive */
+    .btn3 {
+      position: absolute;
+      ;
+      width: auto;
+      height: 10%;
+      top: 48%;
+      left: 54%;
+      transform: translate(-50%, -50%);
+      background-color: #555;
+      color: white;
+      font-size: 18px;
+      border: 2px solid lightgray;
+      cursor: pointer;
+      border-radius: 5px;
+
+      white-space: nowrap;
+    }
+
+    .btn3:hover {
+      background-color: black;
+    }
+
+    .btn1 {
+      position: absolute;
+      ;
+      width: 30%;
+      height: 10%;
+      top: 48%;
+      left: 56%;
+      transform: translate(-50%, -50%);
+      background-color: #555;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      border: 2px solid lightgray;
+      cursor: pointer;
+
+
+      border-radius: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .btn1:hover {
+      background-color: black;
+
+    }
+
+    .btn2 {
+      position: absolute;
+      ;
+      width: 35%;
+      height: 10%;
+      top: 48%;
+      left: 54%;
+      transform: translate(-50%, -50%);
+      background-color: #555;
+      color: white;
+      font-size: 18px;
+      border: 2px solid lightgray;
+      cursor: pointer;
+      border-radius: 5px;
+
+      white-space: nowrap;
+
+    }
+
+    .btn2:hover {
+      background-color: black;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="navbar-brand" href="/instructoruser">Course Management</a>
+
+      </div>
+
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="/instructoruser/personal_details"> Personal Details </a></li>
+          <li><a href="/instructoruser/assigned_courses" id="form"> Assigned Courses </a></li>
+          <li><a href="{{url_for('grade_submission')}}">Grade Submission </a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> {{info.instructor_id}}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/instructorlogout">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+  <ul class="pager">
+    <li class="next"><a href="{{url_for('assigned_courses')}}"
+        style="background-color: whitesmoke;font-weight:bold;margin-right:45px;color:grey;">&laquo;previous</a></li>
+  </ul>
+  <div class="row">
+    <div class="column" align="left">
+
+      <img class="img-thumbnail" src={{ url_for('static', filename ='images/new11.jpg' )}} alt="attendance"
+        style="width:100%;height:auto;">
+      <a href="{{url_for('attendance', section = section)}}">
+
+        <button class="btn3">Attendance</button> </a>
+    </div>
+    <div class="column" align="middle">
+
+
+      <img class="img-thumbnail" src={{ url_for('static', filename ='images/mark44.jpg' )}} alt="mark"
+        style="width:100%;height:auto;">
+      <a href="{{url_for('marks', section = section)}}">
+        <button class="btn1">Assessment</button> </a>
+
+
+    </div>
+    <div class="column" align="right">
+      <img class="img-thumbnail" src={{ url_for('static', filename ='images/pencil33.jpg' )}} alt="check"
+        style="width:100%;height:auto;">
+      <a href="{{url_for('check_details', section = section)}}">
+
+        <button class="btn2">Check Progress</button> </a>
+
+
+
+    </div>
+    <div class="column" style="margin-left:450px;">
+      <img class="img-thumbnail" src={{ url_for('static', filename ='images/student.jpg' )}} alt="check"
+        style="width:100%;height:auto;">
+      <a href="{{url_for('check_student_list', section = section)}}">
+
+        <button class="btn2">Student List</button> </a>
+    </div>
+    <!--<div class="container1">
+      <img src = {{ url_for('static', filename ='images/new.jpg' )}} alt="MARK">
+        <a href="/instructoruser/asigned_courses/marks/4">
+      
+      </div>
+       <img src = {{ url_for('static', filename ='images/new.jpg' )}} alt="MARK">
+        <a href="/instructoruser/asigned_courses/marks/4">
+        <button  class="btn">MARK</button>
+    -->
+    <!-- <div>
+          <img src = {{ url_for('static', filename ='images/new.jpg' )}} alt="check">
+            <a href=/instructoruser/assigned_courses/check_details/4">
+            <button  class="btn">Check</button>
+          </div>
+      </div>-->
+
+    <!-- <h1> Student List</h1>
+    <hr>
+     -->

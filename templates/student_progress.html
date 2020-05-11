@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block title %} Student Progress {% endblock %}
+{% block style %} 
+<style>
+    table {
+            border: 2px solid blue;
+            border-collapse: collapse;
+            background-color: white;
+            width: 30%;
+            height: 40%;
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid blue;
+            text-align: center;
+        }
+
+        th {
+            background-color: skyblue;
+        }
+
+        #table, #t1 {
+            width: 100%;
+            align-content: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #hide1{
+            visibility: hidden;
+        }
+        #result, #result1 {
+            color: red;
+        }
+
+
+</style>
+{% endblock%}
+
+{% block nav %}
+      <a class="navbar-brand" href="{{url_for('studentuser')}}">Course Management</a>
+      {% endblock %}
+
+{% block navigation %}
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="{{url_for('personal_details')}}" > Personal Details </a></li>
+          <li><a href="{{url_for('enrolled_courses1')}}" id = "form"> Enrolled Courses </a></li>
+          <li><a href="{{url_for('course_registration')}}">Course Registration </a></li>
+          <li><a href="{{url_for('grades')}}">Grades </a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">   </span> {{ info.student_first_name }} </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{url_for('studentlogout')}}">Log out</a></li>
+                </ul>
+              </li>
+        </ul>
+      </div>
+{% endblock %}
+{% block body %}
+    <br><br><br><br>
+    <h1 id="f2"> PROGRESS OF {{ sec.course_code }}({{ sec.section_no }}) for you, {{ info.student_first_name}}! </h1>
+    <hr>
+    <br> 
+    <h3> Attendance </h3>
+    <hr>
+    <table id = "table">
+        <tr>
+            <th> Date </th>
+            <th> Attendance Status </th>
+        </tr>
+        {% for attendance in attendances %}
+        <tr>
+            <td> {{ attendance.date }}</th>
+            {% if attendance.status == "P" %}
+              <td> Present </td>
+            {% else %}
+              <td> Absent </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <h3> Summary </h3>
+    <hr>
+    <table id = "table">
+        <tr>
+            <th> Total Classes </th>
+            <th> Attended </th>
+            <th> Attentivity </th>
+            <th> Comment </th>
+        </tr>
+        
+        <tr>
+            <td> {{ summary.total_classes }}</td>
+            <td> {{ summary.attended }}</td>
+            <td> {{ summary.attentivity }}%</td>
+            {% if summary.attentivity <= 50 %}
+              <td> You need to be more attentive!  </td>
+            {% else %}
+              <td> Keep up the good work! </td>
+            {% endif %}
+        </tr>
+        
+    </table>
+    
+    
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+{% block title %} Marks {% endblock %}
+    {% block style %}
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='css/marks1.js') }}"></script>
+    <style>
+      table {
+            border: 2px solid blue;
+            border-collapse: collapse;
+            background-color: lightgrey;
+            width: 30%;
+            height: 40%;
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid blue;
+            text-align: center;
+        }
+
+        th {
+            background-color: skyblue;
+        }
+
+        #table, #t1 {
+            width: 100%;
+            align-content: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #hide1{
+            visibility: hidden;
+        }
+        #result, #result1 {
+            color: red;
+        }
+        input {
+          width: 50%;
+        }
+        input[type=submit]{
+          width:auto;
+        }
+        #hide1 {
+          visibility: hidden;
+
+        }
+  .pp1
+  {
+    font-size: medium;
+    font-weight: bold;
+  }
+  hr{ 
+    height: 1px;
+   
+    background-color:rgb(99, 18, 18);
+    border: none;
+  }
+  
+        
+    </style>
+    {% endblock %}
+    {% block nav %}
+      <a class="navbar-brand" href="{{url_for('instructoruser')}}">Student Portal</a>
+      {% endblock %}
+    {% block navigation %}
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="{{url_for('faculty_personal_details')}}" > Personal Details </a></li>
+          <li><a href="{{url_for('assigned_courses')}}" id = "form"> Assigned Courses </a></li>
+          <li><a href="#">Grade Submission </a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">   </span> {{ info.instructor_id }} </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{url_for('instructorlogout')}}">Log out</a></li>
+                </ul>
+              </li>
+        </ul>
+      </div>
+{% endblock %}
+
+    {% block body %}
+<br>
+    
+    <h1> Student List for {{ sec.course_code }}({{ sec.section_no}}) - {{sec.semester}}{{sec.year}}</h1>
+    <hr>
+    <div id = "hide1">{{sec.id}}</div>
+
+    <ul>
+      {% for student in students %}
+      <li class="pp1"> <a href="{{url_for('assesments', student_id = student.student_id, section = sec.id)}}">{{ student.student_first_name}} {{ student.student_last_name }}({{ student.student_id}}) </a></li>
+      <br>
+      {% endfor %}
+    </ul>
+    <!-- <table id = "table">
+      <tr>
+        <th> Student ID </th>
+        <th> Student Name </th>
+        <th> Mid 1 </th>
+        <th> Mid 2 </th>
+        <th> Final </th>
+        <th> Quiz </th>
+        <th> Project </th>
+        <th> Attendance </th>
+        <th> </th>
+      </tr>
+      {% for student in students %}
+      <tr>
+        <td id = "sid">{{ student.student_id }}</td>
+        <td> {{ student.student_first_name }} {{ student.student_last_name }}</td>
+        <td> <input type = "number" data-id = "mid1" name = "" placeholder="out of 25"></td>
+        <td> <input type ="number" data-id = "mid2" name = "" placeholder="out of 25"></td>
+        <td> <input type ="number" data-id = "final" name = "" placeholder="out of 25"></td>
+        <td> <input type ="number" data-id = "quiz" name = "" placeholder="out of 10"></td>
+        <td> <input type ="number" data-id = "project" name = "" placeholder="out of 10"></td>
+        <td data-id = "attendance">{{ student.attendance_mark }}</td>
+        <td> <button> Add </button></td>
+
+      </tr>
+      {% endfor %}
+    </table> -->
+
+    <h3 id = "result"> </h3>
+    
+    
+
+
+  
+   
+    {% endblock %}

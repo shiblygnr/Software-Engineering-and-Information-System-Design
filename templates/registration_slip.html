@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> Registration Slip</title>
+    </head>
+
+    <body>
+        <h1 align="center"> Registration slip for {{semester}}{{year}}</h1>
+        <hr>
+        <div align = "center">
+            <p> Name: {{info.student_first_name}} {{info.student_last_name}}</p>
+            <p> ID: {{info.student_id}}</p>
+            <p> Department: {{info.student_dept}}</p>
+        </div>
+        <table align="center" border="1">
+            <tr>
+                <!--th type = "hidden"> Section ID</th!-->
+                <th> Course Code</th>
+                <th> Section </th>
+                <th> Credit </th>
+                <th> Instructor </th>
+                <th> Time</th>
+                <th> Days </th>
+                <th> Tuition Fee</th>   
+            </tr>
+            {% for section in sections %}
+            <span>  </span>
+            <tr>
+                <!--td type = "hidden"> {{ section.section_id }} </td!-->
+                <td> {{ section.course_code }} </td>
+                <td> {{ section.section_no}} </td>
+                <td> {{ section.course_credit}} </td>
+                <td> {{ section.instructor_id }} </td>
+                <td> {{ section.time_slot}}</td>
+                <td> {{ section.days}}</td>  
+                <span> {% set temp = section.course_credit*4900 %} </span>
+                <td > {{ temp }}</td>        
+            </tr>
+            {% endfor %}
+            
+        </table>
+        <h3 align = "center"> Total tuition fee: {{ total }}</h3>
+
+    </body>
+
+</html>

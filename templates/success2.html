@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %} Faculty Info {% endblock %}
+    {% block style %}
+    <style>
+        #f2 {
+            font-size: 48px;
+            font-weight: 900;
+            color: white;
+            font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+        }
+        #f1 {
+            size: 100px;
+            background:rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            width: 25%;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+        p {
+            font-size: 24px;
+            color: white;
+            text-align: center;
+        }
+     
+    </style>
+    {% endblock %}
+
+    {% block body %}
+    <br><br><br><br>
+    <h1 id="f2"> INFORMATION</h1>
+    <br><br>
+    <div id="f1">
+       <p> First name : {{ info.instructor_first_name }} </p> 
+       <p> Last name : {{ info.instructor_last_name }} </p>
+       <p> Initial : {{ info.instructor_id }} </p>
+       <p> Rank : {{ info.instructor_rank }} </p>
+        
+    </div>
+    {% endblock %}
