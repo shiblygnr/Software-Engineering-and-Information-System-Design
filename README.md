@@ -18,6 +18,11 @@ On the other hand, a faculty member can use this system for class attendance of 
   Vanilla JavaScript for front end
   
   Postgres database and SQL for database management
+  
+# Screenshot
+
+![Student Log in](https://drive.google.com/drive/u/0/folders/1TNuOHnlq2lPDzddZVOAJedhfLgJvmcQK)
+
 
 # Repo link
 
