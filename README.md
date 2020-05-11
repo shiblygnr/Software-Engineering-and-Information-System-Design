@@ -21,7 +21,38 @@ On the other hand, a faculty member can use this system for class attendance of 
   
 # Screenshot
 
-![Student Log in](https://drive.google.com/drive/u/0/folders/1TNuOHnlq2lPDzddZVOAJedhfLgJvmcQK)
+![Student Log in](https://drive.google.com/uc?export=view&id=1EHYFswiT2ZeHWSYLwZXXVpx8rGPH6YrZ)
+
+![Instructor sign up](https://drive.google.com/uc?export=view&id=1LNDSUQHqGF9mdq6Xv3F2wgl8aWov245w)
+
+![Student Details](https://drive.google.com/uc?export=view&id=1UmKJnexiTTX0AIpTp4JtBgvtTHK9bvBw)
+
+![Enrolled courses](https://drive.google.com/uc?export=view&id=1oyght7tjy3klyydlylTB5eB4WEa0WsUj)
+
+![Course registration](https://drive.google.com/uc?export=view&id=10J_6bo5yhHD-fBT-HUN-jppL39yi74jg)
+
+![Student progress](https://drive.google.com/uc?export=view&id=1N3L1zvZ-C4ZR8GVvwizPP2hZIy0OQk4A)
+
+![Gradesheet](https://drive.google.com/uc?export=view&id=1tYYs9Ny7TIGwtNTQ3Nhr_lv3OYd3O5fX)
+
+![Instructor Details](https://drive.google.com/uc?export=view&id=1R6H4sxKia7G7sgqbVP9rIDR7NoHKV_UB)
+
+![Assigned Courses](https://drive.google.com/uc?export=view&id=1zGie9XMlGIqadS5JeNj8_hkUz-jL1JX7)
+
+![Section Details](https://drive.google.com/uc?export=view&id=1OaHwDENcF9OIJd8VF9igW-nBIReYLZ8j)
+
+![Attendance](https://drive.google.com/uc?export=view&id=1cBlEnZZ_nMMLGNRUW_Yx80J-NDVw_nwQ)
+
+![Student assesment1](https://drive.google.com/uc?export=view&id=1s_OhV1hmOxz6aXyZ7lEreUVVAfcFgFqW)
+
+![Student assesment2](https://drive.google.com/uc?export=view&id=1aKs7RKbnJriSyH0B1d7Elr16PNwjVE3R)
+
+![Student List](https://drive.google.com/uc?export=view&id=1QNgFpCfPFepzRYYbDAGKU7jouzhPRHJe)
+
+![Check Progress](https://drive.google.com/uc?export=view&id=1g-PpRwElVNkt7yHPTHg_t__guSCqQEAH)
+
+![Grade Submission](https://drive.google.com/uc?export=view&id=1cJYxA4xldnL8kyl9fRHRsWG4E7hEvihe)
+
 
 
 # Repo link
