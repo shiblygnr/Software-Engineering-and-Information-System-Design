@@ -1,0 +1,132 @@
+{% extends "layout.html" %}
+
+{% block title %} Faculty Login {% endblock %}
+
+{% block style %}
+<style>
+    body {
+
+        background-image: url(../static/images/bg1.jpg);
+        background-size: cover;
+
+    }
+
+    p {
+        color: rgb(69, 75, 75);
+        font-size: 20px;
+
+        text-align: center;
+    }
+
+    button {
+        font-size: 18px;
+        background-color: white;
+
+        width: 20%;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    button:hover {
+        background-color: thistle;
+    }
+
+    #f1 {
+        size: 100px;
+        background-color: lightgray;
+        padding: 20px;
+        width: 60%;
+        margin: 0 auto;
+        border-radius: 10px;
+
+        align-content: center;
+        opacity: 0.7;
+    }
+
+    input {
+        border: 2px solid brown;
+        padding: 18px;
+        width: 50%;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        /*font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;*/
+        font-size: 20px;
+    }
+
+    #f2 {
+        color: black;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bold;
+        align-content: center;
+        text-align: center;
+
+    }
+
+    #f3 {
+        font-size: 48px;
+        font-weight: 900;
+    }
+
+    #form {
+        text-align: center;
+    }
+
+    h2 {
+        color: black;
+        font-size: 30px;
+        text-align: center;
+
+    }
+
+    #f3 {
+        color: black;
+        font-size: 36px;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+
+
+{% endblock %}
+{% block nav %}
+<a class="navbar-brand" href="{{url_for('index')}}">Course Management</a>
+{% endblock %}
+
+{% block body %}
+
+<body>
+    <br>
+
+    <br>
+    <br>
+    <br>
+    <div id="f1">
+        <h1 id="f2"> INSTRUCTOR LOG IN </h1>
+
+        <form action="{{url_for('instructoruser')}}" method="POST" id="form">
+            <br>
+            <div> <input name="email" type="text" placeholder="username"> <br> </div>
+            <div> <input name="password" type="password" placeholder="password"> <br></div>
+            <div>
+                <button class="btn btn-primary btn-lg"> Log in </button>
+            </div>
+
+        </form>
+        <br>
+        <p style="font-weight: bold;color:black"> Not registered? <a href="{{url_for('faculty_signup')}}"
+                style="font-weight: bolder;color:black;">Sign up</a></p>
+
+
+        <div id="f3">
+            {{message}}
+        </div>
+
+    </div>
+    <br>
+
+</body>
+
+
+{% endblock %}

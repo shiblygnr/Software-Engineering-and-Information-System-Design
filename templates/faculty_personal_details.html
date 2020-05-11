@@ -1,0 +1,378 @@
+{% extends "layout.html" %}
+
+{% block title %} Personal Details {% endblock %}
+{% block style %} 
+
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+  .card {
+      padding-top: 50px;
+      margin: 70px 0 70px 0;
+      width: 500px;
+      height:530px;
+      background-color: rgba(214, 224, 226, 0.2);
+      
+  }
+  
+  .card .card-heading {
+      padding: 0 20px;
+      margin: 0;
+  }
+  
+  .card .card-heading.simple {
+      font-size: 30px;
+      font-weight: 300;
+      color: #777;
+      border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .card .card-heading.image img {
+      display: inline-block;
+      width: 50px;
+      height: 46px;
+      margin-right: 15px;
+      vertical-align: top;
+      border: 0;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+  }
+  
+  .card .card-heading.image .card-heading-header {
+      display: inline-block;
+      vertical-align: top;
+  }
+  
+  .card .card-heading.image .card-heading-header h3 {
+      margin: 0;
+      font-size: 14px;
+      line-height: 16px;
+      color: #262626;
+  }
+  
+  .card .card-heading.image .card-heading-header span {
+      font-size: 12px;
+      color: #999999;
+  }
+  
+  .card .card-body {
+      padding: 0 20px;
+      margin-top: 20px;
+  }
+  
+  .card .card-media {
+      padding: 0 20px;
+      margin: 0 -14px;
+  }
+  
+  .card .card-media img {
+      max-width: 100%;
+      max-height: 100%;
+  }
+  
+  .card .card-actions {
+      min-height: 30px;
+      padding: 0 20px 20px 20px;
+      margin: 20px 0 0 0;
+  }
+  
+  .card .card-comments {
+      padding: 20px;
+      margin: 0;
+      background-color: #f8f8f8;
+  }
+  
+  .card .card-comments .comments-collapse-toggle {
+      padding: 0;
+      margin: 0 20px 12px 20px;
+  }
+  
+  .card .card-comments .comments-collapse-toggle a,
+  .card .card-comments .comments-collapse-toggle span {
+      padding-right: 5px;
+      overflow: hidden;
+      font-size: 12px;
+      color: #999;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+  }
+  
+  .card-comments .media-heading {
+      font-size: 13px;
+      font-weight: bold;
+  }
+  
+  .card.people {
+      position: relative;
+      display: inline-block;
+      width: 170px;
+      height: 300px;
+      padding-top: 0;
+      margin-left: 20px;
+      overflow: hidden;
+      vertical-align: top;
+  }
+  
+  .card.people:first-child {
+      margin-left: 0;
+  }
+  
+  .card.people .card-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 170px;
+      height: 150px;
+      background-color: #ffffff;
+  }
+  
+  .card.people .card-top.green {
+      background-color: #53a93f;
+  }
+  
+  .card.people .card-top.blue {
+      background-color: #427fed;
+  }
+  
+
+  
+
+  
+  .card.people .card-info .desc {
+      display: block;
+      margin: 8px 14px 0 14px;
+      overflow: hidden;
+      font-size: 12px;
+      line-height: 16px;
+      color: #737373;
+      text-overflow: ellipsis;
+  }
+  
+  .card.people .card-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: inline-block;
+      width: 100%;
+      padding: 10px 20px;
+      line-height: 29px;
+      text-align: center;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+  
+  .card.hovercard {
+      position: relative;
+      padding-top: 0;
+      overflow: hidden;
+      text-align: center;
+      background-color: rgba(120, 129, 131, 0.2);
+  }
+  
+  .card.hovercard .cardheader {
+    /*  background: url("http://lorempixel.com/850/280/nature/4/");*/
+    background: url('../static/images/new.jpg');
+      background-size: cover;
+      height: 200px;
+      width:100%;
+  }
+  /*faculty pic position*/
+  .card.hovercard .avatar {
+      position: relative;
+      top: -150px;
+      margin-bottom: -50px;
+  }
+  
+  .card.hovercard .avatar img {
+      width: 250px;
+      height: 250px;
+      max-width: 250px;
+      max-height: 250px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      border: 5px solid rgba(255,255,255,0.5);
+  }
+  
+  .card.hovercard .info {
+      padding: 5px 5px 5px;
+  }
+  
+  .card.hovercard .info .title {
+    display: block;
+    margin: -80px -82px 0 -80px;
+    overflow: hidden;
+    font-size: 25px;
+   font-family: Poppins;
+    font-weight: bold;
+    line-height: -25px;
+    color: #404040;
+  }
+  
+  .card.hovercard .info .desc {
+      overflow: hidden;
+      font-size: 18px;
+      line-height: -10px;
+      font-family: Poppins-bold;
+      font-weight: bold;
+      color: black;
+      text-overflow: ellipsis;
+  }
+  
+  .card.hovercard .bottom {
+      padding: 0 20px;
+      margin-bottom: 17px;
+  }
+  
+  .btn{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
+  .split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  
+  
+  .split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .left {
+    left: 0;
+    background-color: lightyellow;
+    top:100px;
+    
+  }
+  
+  .right {
+    right: 0;
+    background-color: lightyellow;
+    top:100px;
+  }
+  hr{ 
+    height: 1px;
+   
+    background-color:rgb(99, 18, 18);
+    border: none;
+  }
+  
+</style>
+{% endblock%}
+
+{% block nav %}
+      <a class="navbar-brand" href="{{url_for('instructoruser')}}">Course Management</a>
+      {% endblock %}
+
+{% block navigation %}
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="{{url_for('faculty_personal_details')}}" > Personal Details </a></li>
+          <li><a href="{{url_for('assigned_courses')}}" id = "form"> Assigned Courses </a></li>
+          <li><a href="{{url_for('grade_submission')}}">Grade Submission </a></li>
+          <!--li><a href="#">Grades </a></li!-->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">   </span> {{ info.instructor_id }} </a>
+              <ul class="dropdown-menu">
+                  
+                <li><a href="{{url_for('instructorlogout')}}">Log out</a></li>
+              </ul>
+            </li>
+      </ul>
+      </div>
+{% endblock %}
+{% block body %}
+
+<body style="background-color:lightyellow">
+  <div class="left">
+    <div class="row">
+      <div class="col-lg-3 col-sm-6">
+  
+              <div class="card hovercard">
+                  <div class="cardheader">
+  
+                  </div>
+                  <div class="avatar">
+                    <!--insert image-->
+                      <img src="{{url_for('static', filename = image)}}">
+                  </div>
+                  <div class="info">
+                      <div class="title">
+                          <p style="color:darkslateblue;font-weight: bold;">{{ info.instructor_first_name }} {{ info.instructor_last_name }}</p>
+                      </div>
+                      <div class="desc"></div>
+                      <div class="desc">EAST WEST UNIVERSITY</div>
+                      <div class="desc">Email: {{user.email}}</div>
+                      <div class="desc">Phone: {{user.phone_no}}</div>
+                      <div class="desc">Room no: </div>
+                
+                  </div>
+                  <div class="bottom">
+                      <a class="btn btn-primary btn-twitter btn-sm" href="#">
+                          <i class="fa fa-twitter"></i>
+                      </a>
+                      <a class="btn btn-danger btn-sm" rel="publisher"
+                         href="#">
+                          <i class="fa fa-google-plus"></i>
+                      </a>
+                      <a class="btn btn-primary btn-sm" rel="publisher"
+                         href="#">
+                          <i class="fa fa-facebook"></i>
+                      </a>
+                      <a class="btn btn-warning btn-sm" rel="publisher" href="#">
+                          <i class="fa fa-linkedin"></i>
+                      </a>
+                  </div>
+              </div>
+  
+          </div>
+  
+    </div>
+  </div>
+</div>
+  <div class="split right">
+    <br>
+
+    <h1 id="f2"> PERSONAL INFORMATION</h1> 
+    
+    <hr>
+    <br><br>
+    <div >
+      <p style="color:black;font-weight: bold;">Name : {{ info.instructor_first_name }} {{ info.instructor_last_name }}
+        <p style="color:black;font-weight: bold;"> Department : {{ info.instructor_dept }} </p>
+        <p style="color:black;font-weight: bold;"> Initial : {{ info.instructor_id }} </p>
+        <p style="color:black;font-weight: bold;"> Rank : {{ info.instructor_rank }} </p>
+        <p style="color:black;font-weight: bold;"> Date of Birth : {{ info.instructor_dob }} </p>
+       
+        
+    </div>
+
+    <br>
+    <h1 id="f3"> OFFICE HOURS</h1>
+    <hr>
+
+    {% for hour in officehours %}
+    <p>{{ hour.slot }}</p>
+    {% endfor %}
+
+    <br>
+    <hr>
+    <br>
+    <a href = "{{url_for('edit_instructor_details')}}"> Edit Details</a>
+    
+  </body>
+{% endblock %}

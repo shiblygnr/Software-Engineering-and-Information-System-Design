@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+{% block title %} Course Registration {% endblock %}
+    {% block style %}
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='css/course_registration.js') }}"></script>
+    <script src="{{ url_for('static', filename='css/show_registered_courses.js') }}"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <style>
+        
+        table {
+            border: 2px solid blue;
+            border-collapse: collapse;
+            background-color: white;
+            width: 30%;
+            height: 50%;
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid blue;
+            text-align: center;
+        }
+
+        th {
+            background-color: skyblue;
+        }
+
+        #table, #t1 {
+            width: 100%;
+            align-content: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+           
+        }
+        #c {
+            align-content: center;
+        }
+
+        #result  {
+            color :red;
+            text-align: center;
+        }
+        
+        #registered, #form1 {
+            text-align: center;
+        }
+        .newco
+        {
+            color: green;
+        }
+       
+        
+        
+    </style>
+    {% endblock %}
+    {% block nav %}
+      <a class="navbar-brand" href="{{url_for('studentuser')}}">Course Management</a>
+      {% endblock %}
+    {% block navigation %}
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="{{url_for('personal_details')}}" > Personal Details </a></li>
+          <li><a href="{{url_for('enrolled_courses1')}}" id = "form"> Enrolled Courses </a></li>
+          <li><a href="{{url_for('course_registration')}}">Course Registration </a></li>
+          <li><a href="{{url_for('grades')}}">Grades </a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">   </span> {{ info.student_first_name }} </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{url_for('studentlogout')}}">Log out</a></li>
+                </ul>
+              </li>
+        </ul>
+      </div>
+{% endblock %}
+
+    {% block body %}
+    <body style="background-color:whitesmoke">
+    <br><br><br><br>
+    <h1 id="f2"> RECOMMENDED COURSES - {{ message.semester }} {{ message.year }}</h1>
+    <hr>
+    <br>
+    <div id="f1">
+        <div id = "c">
+        <table id = "table">
+        <tr> 
+            <!--th type = "hidden"> Section ID</th!-->
+            <th> Course Code</th>
+            <th> Section </th>
+            <th> Credit </th>
+            <th> Instructor </th>
+            <th> Time</th>
+            <th> Days </th>   
+            <th> Capacity </th>   
+            <th> </th>       
+        </tr>
+        
+      
+        {% for section in section_info %}
+                <tr>
+                    <!--td type = "hidden"> {{ section.section_id }} </td!-->
+                    <td> {{ section.course_code }} </td>
+                    <td> {{ section.section_no}} </td>
+                    <td> {{ section.course_credit}} </td>
+                    <td> {{ section.instructor_id }} </td>
+                    <td> {{ section.time_slot}}</td>
+                    <td> {{ section.days}}</td>  
+                    <td data-id = '{{section.section_id}}'> {{ section.capacity}}</td>  
+                    <td> <button type="button" class="btn btn-success btn-sm" data-course = '{{section.section_id}}'>   Add </button></td>           
+                </tr>
+        {% endfor %}
+        </table> 
+        </div>   
+    </div>
+    <br>
+    <h3 id = "result">
+
+    </h3>
+    <hr>
+    <div id = "report"></div>
+    <form id = "registered">
+        <button type="button" class="btn btn-success" href = "#" id = "reg"> Registered Courses</button>
+        <br><br>
+    </form>
+    
+    <div id = "t1" align = "center"> </div>
+    <br>
+    <form id = "form1"> 
+        <a href="{{url_for('print_slip')}}" class="btn btn-info ">
+            <span class="glyphicon glyphicon-print"></span> print
+        </a>
+     <a href = "{{url_for('send_mail')}}" button type="button" class="btn btn-primary">  Send me the slip </a> </button>
+    <a href = "{{url_for('edit_registration')}}"button type="button" class="btn btn-warning">  Edit Registration </a> </button>
+    </form>
+    </body>
+    {% endblock %}

@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %} Sign UP - Faculty{% endblock %}
+    {% block style %}
+    <style>
+        body {
+            
+            background-image: url(../static/images/bg.jpg);
+            background-size: cover;
+ 
+         }
+        #f2 {
+            font-size: 26px;
+            font-weight: bold;
+            color: whitesmoke;
+            text-align: center;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #f1 {
+            size: 100px;
+            background-color: lightgray;
+            padding: 20px;
+            width:60%;
+            margin: 0 auto;
+            border-radius: 10px;
+            align-content: center;
+            opacity:0.6;
+        }
+        input, select, button{
+            border: 2px solid brown;
+            padding: 18px;
+            width: 70%;
+            border-radius: 10px;
+
+            margin-bottom: 5px;
+            margin-top: 5px;
+            font-family :Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+        select, button {
+            width: 20%;
+        }
+        button:hover {
+            background-color: thistle;
+        }
+        h2 {
+            font-weight: 900;
+            color: black;
+            font-size: 22px;
+            text-align: center;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #form {
+            text-align: center;
+        }
+
+    </style>
+    {% endblock %}
+    {% block nav %}
+      <a class="navbar-brand" href="{{url_for('index')}}">Course Management</a>
+{% endblock %}
+
+    {% block body %}
+    <body>
+    <br>
+    <h2 id="f2"> Faculty Registration</h2> 
+    <hr>
+    <div id = "f1">
+        
+<br>
+    <form id = "form" action="{{url_for('faculty_signup_confirm')}}" method = "POST">
+        <div> <input name="email" type="text" placeholder="Email" id="email"> <br>  </div>
+        <div> <input name="phone" type="text" placeholder="Phone" id="phone"> <br>  </div>
+        <div> <input name="fid" type="text" placeholder="Faculty ID" id="fid"> <br></div>
+        <div> <input name="password" type="password" placeholder="Password"  id="password"> <br> </div>
+        <div> <button class="btn btn-lg" style="background-color:grey;color:white;font-weight:bolder;"> Submit </button> </div>
+        <h2> {{ message }} </h2>
+    </form>
+</div>
+    <br> 
+    
+</body>
+    
+    {% endblock %}

@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %} Instructor Info {% endblock %}
+
+{% block style %}
+
+<style>
+  body {
+    background-image: url(../static/images/instructor_dashboard.jpg);
+    background-size: cover;
+
+  }
+
+  #f2,
+  #f3,
+  #f4 {
+    font-size: 48px;
+    font-weight: 900;
+    color: black;
+    font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+  }
+
+  #f1 {
+    size: 100px;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 20px;
+    width: 25%;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+  p {
+    font-size: 24px;
+    color: black;
+    text-align: center;
+  }
+
+  hr {
+    display: block;
+    height: 10px;
+    border: 0;
+    border-top: 1.5px solid black;
+    margin: 1em 0;
+    padding: 0;
+  }
+</style>
+{% endblock %}
+{% block nav %}
+<a class="navbar-brand" href="{{url_for('instructoruser')}}">Course Management</a>
+{% endblock %}
+
+{% block navigation %}
+<div class="collapse navbar-collapse" id="myNavbar">
+  <ul class="nav navbar-nav">
+    <li><a href="{{url_for('faculty_personal_details')}}"> Personal Details </a></li>
+    <li><a href="{{url_for('assigned_courses')}}"> Assigned Courses </a></li>
+    <li><a href="{{url_for('grade_submission')}}">Grade Submission </a></li>
+    <!--li><a href="#">Grades </a></li!-->
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"> </span>
+        {{ info.instructor_id }} </a>
+      <ul class="dropdown-menu">
+        <li><a href="{{url_for('instructorlogout')}}">Log out</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+{% endblock %}
+
+{% block body %}
+<h1 style="font-weight: bolder;font-family: Verdana, Geneva, Tahoma, sans-serif;"> Hi {{info.instructor_first_name}}!
+</h1>
+<hr >
+
+<h1 style="font-weight: bold;font-family: Verdana, Geneva, Tahoma, sans-serif;">Welcome to the Course Management System!</h1>
+
+{% endblock %}

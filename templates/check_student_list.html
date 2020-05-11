@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% block title %} Student List {% endblock %}
+{% block style %}
+
+<script src="{{ url_for('static', filename='css/grade_submission.js') }}"></script>
+<style>
+    table {
+            border: 2px solid blue;
+            border-collapse: collapse;
+            background-color: lightgrey;
+            width: 30%;
+            height: 40%;
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid blue;
+            text-align: center;
+        }
+
+        th {
+            background-color: skyblue;
+        }
+
+        #table, #t1, #table1 {
+            width: 100%;
+            align-content: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #hide1{
+            visibility: hidden;
+        }
+        #result, #result1 {
+            color: red;
+        }
+
+
+</style>
+{% endblock %}
+{% block nav %}
+<a class="navbar-brand" href="{{url_for('instructoruser')}}">Course Management</a>
+{% endblock %}
+{% block navigation %}
+<div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+        <li><a href="{{url_for('faculty_personal_details')}}"> Personal Details </a></li>
+        <li><a href="{{url_for('assigned_courses')}}" id="form"> Assigned Courses </a></li>
+        <li><a href="{{url_for('grade_submission')}}">Grade Submission </a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"> </span>
+                {{ info.instructor_id }} </a>
+            <ul class="dropdown-menu">
+                <li><a href="{{url_for('instructorlogout')}}">Log out</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block body %}
+
+<h1> Student List - {{ sec.course_code }}({{ sec.section_no}}) for {{sec.semester }}{{ sec.year }}</h1>
+<hr>
+<div id = "hide1">{{sec.id}}</div>
+
+<table id = "table">
+    <tr>
+        <th> Student ID </th>
+        <th> Student Name </th>
+        <th> Phone No </th>
+        <th> Email </th>
+        <th> More Info </th>
+    </tr>
+    <!-- {% set details = [] %} -->
+    {% for student in students %}
+    <!-- {{ details.append(student)}} -->
+    <tr>
+        <td> {{ student.student_id }} </td>
+        <td> {{ student.student_first_name }} {{ student.student_last_name }} </td>
+        <td> {{student.phone_no}}</td>
+        <td> {{student.email}}</td>
+        <td> <a href="{{url_for('see_student_details', student_id = student.student_id)}}"> Details </a></td>
+
+        
+    </tr>
+    {% endfor %}
+</table>
+<br>
+
+<br>
+
+
+
+
+
+
+{% endblock %}

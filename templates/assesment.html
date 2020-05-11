@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+
+{% block title %} Assesment {% endblock %}
+    
+    {% block style %}
+    <script src="{{ url_for('static', filename='css/assesment.js') }}"></script>
+    <style>
+    
+        #f2, #f3, #f4{
+            font-size: 48px;
+            font-weight: 900;
+            color: black;
+            font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+        }
+        #f1 {
+            size: 100px;
+            background:rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            width: 25%;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+        p, label {
+            font-size: 14px;
+            color: black;
+            font-weight: 200;
+           
+        }
+        .hide {
+            visibility: hidden;
+        }
+        table {
+            border: 2px solid blue;
+            border-collapse: collapse;
+            background-color: white;
+            width: 30%;
+            height: 20%;
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid blue;
+            text-align: center;
+        }
+
+        th {
+            background-color: skyblue;
+        }
+        .f12
+        {
+            font-size:20px;
+            margin-left:0px;
+        }
+
+     
+          hr{ 
+            height: 1px;
+           width:100%;
+            background-color:lightgrey;
+            border: none;
+          }
+.f10
+{
+    font-size:22px;
+    margin-left:0px;
+    color:black;
+    line-height: 15px;
+    font-weight: bold;
+}
+     
+    </style>
+    {% endblock %}
+    {% block nav %}
+      <a class="navbar-brand" href="{{url_for('instructoruser')}}">Course Management</a>
+      {% endblock %}
+
+    {% block navigation %}
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="{{url_for('faculty_personal_details')}}" > Personal Details </a></li>
+          <li><a href="{{url_for('assigned_courses')}}" > Assigned Courses </a></li>
+          <li><a href="{{url_for('grade_submission')}}">Grade Submission </a></li>
+          <!--li><a href="#">Grades </a></li!-->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">   </span> {{ info.instructor_id }} </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{url_for('instructorlogout')}}">Log out</a></li>
+                </ul>
+              </li>
+        </ul>
+      </div>
+    {% endblock %}
+
+    {% block body %}
+    <body style="background-color: white;">
+    <h1 align="center"> Assesment for {{ student.student_first_name}} {{ student.student_last_name }}</h1>
+    <h3 align="center"> ID: {{ student.student_id}}</h3>
+    <h3 align="center"> Course: {{ sec.course_code}}({{ sec.section_no}})</h3>
+    <div class = "hide" id  = "cgpa">{{student.student_cgpa}}</div>
+    <div class = "hide" id  = "credit">{{student.student_tot_credit}}</div>
+    <div class = "hide" id = "section">{{sec.id}}</div>
+    <div class = "hide" id = "sid">{{student.student_id}}</div>
+    <div class = "hide" id = "attentivity">{{attentivity}}</div>
+    <ul>
+        <hr>
+        <li class="f12"> <a href="#" id = "resultcheck"> Check result </a></li>
+        <br>
+        <div class="f10" id = "resultinfo"></div>
+        <hr>
+        <li class="f12" > <a href="#" id = "gradecheck"> Check previous grades </a></li>
+        <br>
+        <div class="f10" id = "gradeinfo"></div>
+        <hr>
+        <li class="f12"> <a href="#" id = "attendancecheck"> Check attendance </a></li>
+        <br>
+        <div class="f10" id = "attendanceinfo"></div> <hr>
+        <li class="f12"> <a href="#" id = "addmarks"> Add marks </a></li>
+        <br>
+        <div class="f10" id = "addmarksinfo"></div> 
+        <div id = "msg"></div> <hr>
+        <li class="f12"> <a href="#" id = "updatemarks"> Update marks </a></li> 
+        <div style="font-size: medium;" id = "updatemarksinfo"></div>
+        <div style="font-size: medium;" id = "msg1"></div>
+        <hr>
+    </ul>
+</body>
+    
+    {% endblock %}

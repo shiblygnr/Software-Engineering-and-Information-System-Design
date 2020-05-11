@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+{% block title %} Check Details {% endblock %}
+{% block style %}
+
+
+<style>
+    table {
+            border: 2px solid blue;
+            border-collapse: collapse;
+            background-color: white;
+            width: 30%;
+            height: 40%;
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid blue;
+            text-align: center;
+        }
+
+        th {
+            background-color: skyblue;
+        }
+
+        #table, #t1, #table1 {
+            width: 100%;
+            align-content: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #hide1{
+            visibility: hidden;
+        }
+        #result, #result1 {
+            color: red;
+        }
+
+
+</style>
+{% endblock %}
+{% block nav %}
+<a class="navbar-brand" href="{{url_for('instructoruser')}}">Course Management</a>
+{% endblock %}
+{% block navigation %}
+<div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+        <li><a href="{{url_for('faculty_personal_details')}}"> Personal Details </a></li>
+        <li><a href="{{url_for('assigned_courses')}}" id="form"> Assigned Courses </a></li>
+        <li><a href="{{url_for('grade_submission')}}">Grade Submission </a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"> </span>
+                {{ info.instructor_id }} </a>
+            <ul class="dropdown-menu">
+                <li><a href="{{url_for('instructorlogout')}}">Log out</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+
+{% block body %}
+
+<h1> Atendance Report - {{ sec.course_code }}({{ sec.section_no}})</h1>
+<hr>
+<h3> Total number of classes in {{sec.semester }}{{ sec.year }}: {{ total_classes }}</h3>
+
+<table id = "table">
+    <tr>
+        <th> Student ID </th>
+        <th> Student Name </th>
+        <th> Attended </th>
+        <th> Attentivity</th>
+    </tr>
+    <!-- {% set details = [] %} -->
+    {% for r in report %}
+    <!-- {{ details.append(student)}} -->
+    <tr>
+        <td> {{ r.student_id }} </td>
+        <td> {{ r.student_first_name }} {{ r.student_last_name }} </td>
+        <td> {{ r.attended }} </td>
+        <td>  {{ r.attentivity }}%</td>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<h1> Suggested Grades - {{ sec.course_code }}({{ sec.section_no}})</h1>
+<hr>
+{% if g %}
+<table id = "table1">
+    <tr>
+        <th> Student ID </th>
+        <th> Student Name </th>
+        <th> Recommended Grade </th>
+        
+    </tr>
+    <!-- {% set details = [] %} -->
+    {% for grades in grade_report %}
+    <!-- {{ details.append(student)}} -->
+    <tr>
+        <td> {{ grades.student_id }} </td>
+        <td> {{ grades.student_first_name }} {{ grades.student_last_name }} </td>
+        <td> {{ grades.grade }} </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+
+<h1> Marks not added yet! </h1>
+
+{% endif %}
+
+
+
+
+
+
+{% endblock %}

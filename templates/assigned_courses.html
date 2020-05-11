@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+{% block title %} Enrolled Courses {% endblock %}
+{% block style %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css"
+  href="{{ url_for('static', filename='table/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='table/vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='table/vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+  href="{{ url_for('static', filename='table/vendor/perfect-scrollbar/perfect-scrollbar.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='table/css/util.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='table/css/main.css') }}">
+
+<!--===============================================================================================-->
+<style>
+  .background {
+    background-image: url('../static/images/back1.jpg');
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  .p {
+    color: #666666;
+    font-family: Poppins-bold;
+    src: url('../fonts/poppins/Poppins-Bold.ttf');
+    text-align: center;
+  }
+
+  table {
+            border: 1px solid blue;
+            border-collapse: collapse;
+            background-color: white;
+            width: 30%;
+            height: 40%;
+            text-align: center;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid blue;
+            text-align: center;
+        }
+
+        th {
+            background-color: skyblue;
+           
+        }
+
+        #table, #t1 {
+            width: 100%;
+            align-content: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+         
+        }
+</style>
+{% endblock%}
+{% block nav %}
+      <a class="navbar-brand" href="{{url_for('instructoruser')}}">Course Management</a>
+      {% endblock %}
+
+    {% block navigation %}
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li ><a href="{{url_for('faculty_personal_details')}}" > Personal Details </a></li>
+          <li><a href="{{url_for('assigned_courses')}}" > Assigned Courses </a></li>
+          <li><a href="{{url_for('grade_submission')}}">Grade Submission </a></li>
+          <!--li><a href="#">Grades </a></li!-->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">   </span> {{ info.instructor_id }} </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{url_for('instructorlogout')}}">Log out</a></li>
+                </ul>
+              </li>
+        </ul>
+      </div>
+    {% endblock %}
+
+{% block body %}
+
+<body class="background">
+
+  <div class="container-fluid">
+    <br>
+    <br><br><br>
+    <h1 class="p">Assigned Courses - {{semester}}{{year}}</h1>
+    <hr>
+    <br>
+    <table id="table">
+      <tr>
+        <th> Course Code</th>
+        <th> Section </th>
+        <th> Schedule </th>
+
+        </th>
+      </tr>
+      {% for course in courses_assigned %}
+      <tr >
+        <td ><a style="color:rgb(70, 47, 92); font-weight: bold;"
+            href="{{url_for('section_details', section=course.section_id )}}">{{course.course_code}}
+        </td>
+        <td ><a style="color:rgb(70, 47, 92); font-weight: bold;"
+            href="{{url_for('section_details', section=course.section_id )}}">
+            {{course.section_no}}
+        </td>
+        <td style="color:rgb(70, 47, 92); font-weight: bold;">{{course.days}}({{course.time_slot}})
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+  </div>
+
+</body>
+
+{% endblock %}
